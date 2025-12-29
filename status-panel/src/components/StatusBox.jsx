@@ -243,7 +243,7 @@ function StatusBox() {
                         <Grid item xs={12} md={item.size} key={item.id}>
                             <Box
                                 component={Link}
-                                to="/dash"
+                                to="/server"
                                 sx={{ textDecoration: 'none', display: 'block', height: '100%' }}
                             >
                                 <Paper sx={getCardStyle(item.isDown)}>
