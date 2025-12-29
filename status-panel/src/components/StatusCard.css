@@ -1,0 +1,65 @@
+
+.status-card {
+    border: 1px solid #1f5a43;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    width: 100%;
+}
+
+
+.status-header {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid;
+}
+
+.status-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.status-body {
+    padding: 12px 16px;
+    background-color: transparent;
+}
+
+.status-body p {
+    margin: 0;
+    font-size: 16px;
+    color: black;
+    font-weight: 1.2;
+}
+
+
+.status-card.success {
+    border-color: #1f5a43;
+}
+.status-card.success .status-header {
+    background-color: #144032;
+    border-bottom-color: #1f5a43;
+}
+
+
+.status-card.warning {
+    border-color: #fbbc04;
+}
+.status-card.warning .status-header {
+    background-color: #5c450a;
+    border-bottom-color: #fbbc04;
+}
+
+
+.status-card.error {
+    border-color: #d93025;
+}
+.status-card.error .status-header {
+    background-color: #5c1816;
+    border-bottom-color: #d93025;
+}

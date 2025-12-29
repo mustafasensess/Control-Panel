@@ -1,0 +1,16 @@
+.header-wrapper {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.main-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: black;
+    opacity: 0.8;
+    letter-spacing: -0.5px;
+}
+.header-p{
+    color: #5f6368;
+}
