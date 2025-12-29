@@ -10,9 +10,44 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ErrorIcon from '@mui/icons-material/Error';
 import CancelIcon from '@mui/icons-material/Cancel';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-import {useServices} from "../contexts/ServiceContext.jsx";
-import {useDates} from "../contexts/DateContext.jsx";
 
+const localServicesData = [
+    {
+        "id": 1,
+        "name": "Backend API Server",
+        "category": "Sunucular",
+        "history": ["OK", "OK", "OK", "OK", "OK", "OK", "OK", "OK"]
+    },
+    {
+        "id": 2,
+        "name": "Database Cluster (PostgreSQL)",
+        "category": "Sunucular",
+        "history": ["OK", "OK", "OK", "OK", "OK", "WARNING", "DOWN", "WARNING"]
+    },
+    {
+        "id": 3,
+        "name": "Redis Cache",
+        "category": "Sunucular",
+        "history": ["OK", "OK", "OK", "OK", "OK", "OK", "OK", "OK"]
+    },
+    {
+        "id": 4,
+        "name": "Payment Gateway (Stripe)",
+        "category": "Entegrasyonlar",
+        "history": ["OK", "OK", "OK", "DOWN", "DOWN", "OK", "OK", "OK"]
+    }
+];
+
+
+const getLast8Days = () => {
+    const days = [];
+    for (let i = 7; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(d.getDate() - i);
+        days.push(d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' }));
+    }
+    return days;
+};
 
 const getStatusIcon = (status) => {
     switch (status) {
@@ -29,8 +64,8 @@ const getStatusIcon = (status) => {
 
 function ServiceTable() {
 
-    const {rows} = useServices();
-    const {dateColumns} = useDates();
+    const rows = localServicesData;
+    const dateColumns = getLast8Days();
 
     return (
         <div style={{width: '100%'}}>
@@ -46,14 +81,11 @@ function ServiceTable() {
             >
                 <Table sx={{minWidth: 650}} aria-label="status table">
 
-
                     <TableHead>
                         <TableRow>
-
                             <TableCell sx={{color: '#888', borderColor: '#444', fontWeight: 'bold', fontSize: '13px'}}>
                                 Hizmetler
                             </TableCell>
-
 
                             {dateColumns.map((date, index) => (
                                 <TableCell
@@ -73,14 +105,12 @@ function ServiceTable() {
                         </TableRow>
                     </TableHead>
 
-
                     <TableBody>
                         {rows.map((service) => (
                             <TableRow
                                 key={service.id}
                                 sx={{'&:last-child td, &:last-child th': {border: 0}}}
                             >
-
                                 <TableCell
                                     component="th"
                                     scope="row"
