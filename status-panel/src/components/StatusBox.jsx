@@ -1,12 +1,14 @@
 import { fakerTR as faker } from "@faker-js/faker";
 import { Link } from "react-router-dom";
-import {Box, Breadcrumbs, Container, Grid, Paper, ToggleButton, ToggleButtonGroup, Typography} from "@mui/material";
+import {Box, Grid, Paper, Typography, Select, MenuItem, FormControl} from "@mui/material";
 import { BarChart } from '@mui/x-charts/BarChart';
 import { LineChart } from '@mui/x-charts/LineChart';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { Gauge, RadarChart } from "@mui/x-charts";
 import { useDates } from "../contexts/DateContext";
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
+
 
 function createRandomPost() {
     return { title: faker.person.firstName() }
@@ -192,45 +194,63 @@ function StatusBox() {
                     </Typography>
 
 
-                    <Box>
-                        <ToggleButtonGroup
-                            value={selectedDateIndex}
-                            exclusive
-                            onChange={handleDateChange}
-                            aria-label="tarih seçimi"
-                            size="small"
-                            sx={{
-                                bgcolor: '#f5f7fa',
-                                borderRadius: '10px',
-                                p: 0.5
-                            }}
-                        >
-                            {dateColumns.map((date, index) => (
-                                <ToggleButton
-                                    key={index}
-                                    value={index}
-                                    sx={{
-                                        border: 'none',
-                                        borderRadius: '8px !important',
-                                        textTransform: 'none',
-                                        fontWeight: 600,
-                                        fontSize: '0.8rem',
-                                        px: 2,
-                                        color: '#6c757d',
-                                        '&.Mui-selected': {
-                                            bgcolor: '#fff',
-                                            color: '#1976d2',
-                                            boxShadow: '0px 2px 5px rgba(0,0,0,0.1)',
-                                            '&:hover': {
-                                                bgcolor: '#fff',
-                                            }
+                    <Box sx={{ minWidth: 100 }}>
+                        <FormControl fullWidth size="small">
+                            <Select
+                                value={selectedDateIndex}
+                                onChange={(e) => handleDateChange(e, e.target.value)}
+                                displayEmpty
+                                IconComponent={KeyboardArrowDownIcon}
+                                sx={{
+                                    bgcolor: '#f5f7fa',
+                                    borderRadius: '10px',
+                                    fontWeight: 600,
+                                    color: '#6c757d',
+                                    fontSize: '0.9rem',
+                                    boxShadow: 'none',
+                                    '.MuiOutlinedInput-notchedOutline': { border: 'none' },
+                                    '&:hover': {
+                                        bgcolor: '#eaeff5',
+                                    },
+                                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                        border: '1px solid #1976d2'
+                                    },
+                                }}
+                                MenuProps={{
+                                    PaperProps: {
+                                        sx: {
+                                            borderRadius: '10px',
+                                            mt: 1,
+                                            maxHeight: 300,
+                                            boxShadow: '0px 4px 20px rgba(0,0,0,0.1)'
                                         }
-                                    }}
-                                >
-                                    {date}
-                                </ToggleButton>
-                            ))}
-                        </ToggleButtonGroup>
+                                    }
+                                }}
+                            >
+                                {dateColumns.map((date, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        value={index}
+                                        sx={{
+                                            fontSize: '0.9rem',
+                                            fontWeight: 500,
+                                            mx: 1,
+                                            borderRadius: '8px',
+                                            '&.Mui-selected': {
+                                                bgcolor: 'rgba(25, 118, 210, 0.08)',
+                                                color: '#1976d2',
+                                                fontWeight: 600
+                                            },
+                                            '&:hover': {
+                                                bgcolor: '#f5f5f5'
+                                            }
+                                        }}
+                                    >
+                                        {date}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
                     </Box>
                 </Box>
 
