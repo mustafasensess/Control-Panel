@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ErrorIcon from '@mui/icons-material/Error';
 import CancelIcon from '@mui/icons-material/Cancel';
 import './StatusCard.css';
 import { useServices } from "../contexts/ServiceContext.jsx";
-import { useDates } from "../contexts/DateContext.jsx"; // 1. DateContext'i ekle
+import { useDates } from "../contexts/DateContext.jsx"; 
 
 const StatusCard = () => {
     const { rows } = useServices();
