@@ -16,7 +16,7 @@
       "id": 3,
       "name": "Redis Cache",
       "category": "Sunucular",
-      "history": ["OK", "OK", "OK", "OK", "OK", "OK", "OK", "OK"]
+      "history": ["OK", "OK", "OK", "OK", "OK", "OK", "OK", "DOWN"]
     },
     {
       "id": 4,

@@ -1,4 +1,3 @@
-import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -35,6 +34,24 @@ const localServicesData = [
         "name": "Payment Gateway (Stripe)",
         "category": "Entegrasyonlar",
         "history": ["OK", "OK", "OK", "DOWN", "DOWN", "OK", "OK", "OK"]
+    },
+    {
+        "id": 5,
+        "name": "Frontend CDN (Cloudflare)",
+        "category": "Sunucular",
+        "history": ["OK", "OK", "OK", "OK", "OK", "OK", "OK", "OK"]
+    },
+    {
+        "id": 6,
+        "name": "Email Service (SendGrid)",
+        "category": "Entegrasyonlar",
+        "history": ["OK", "OK", "WARNING", "OK", "OK", "OK", "OK", "OK"]
+    },
+    {
+        "id": 7,
+        "name": "Elasticsearch Cluster",
+        "category": "Sunucular",
+        "history": ["OK", "OK", "OK", "OK", "WARNING", "WARNING", "OK", "OK"]
     }
 ];
 

@@ -6,7 +6,7 @@ import './StatusCard.css';
 import { useServices } from "../contexts/ServiceContext.jsx";
 import { useDates } from "../contexts/DateContext.jsx"; 
 
-const StatusCard = () => {
+function StatusCard() {
     const { rows } = useServices();
     const { selectedDateIndex } = useDates();
 
@@ -45,13 +45,13 @@ const StatusCard = () => {
         };
     }, [rows, selectedDateIndex]);
 
-    const getIcon = () => {
+    function getIcon() {
         switch (currentStatus.type) {
             case 'error': return <CancelIcon sx={{ color: '#fff', fontSize: 24 }} />;
             case 'warning': return <ErrorIcon sx={{ color: '#fff', fontSize: 24 }} />;
             default: return <CheckCircleIcon sx={{ color: '#fff', fontSize: 24 }} />;
         }
-    };
+    }
 
     return (
         <div className={`status-card ${currentStatus.type}`}>
@@ -64,6 +64,6 @@ const StatusCard = () => {
             </div>
         </div>
     );
-};
+}
 
 export default StatusCard;
