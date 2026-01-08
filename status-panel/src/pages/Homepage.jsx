@@ -18,7 +18,6 @@ function Homepage() {
                             minWidth: 0
                         }}>
                             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-                                {/*<SearchHeader/>*/}
                                 <StatusBox/>
                             </Box>
                         </Box>

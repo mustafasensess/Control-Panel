@@ -19,7 +19,6 @@ function MainLayout() {
         <div>
             <Sidebar open={open} handleDrawer={handleDrawer}/>
 
-
             {loading ? (
                 <div style={{display: 'flex', justifyContent: 'center', padding: 50}}>
                     <CircularProgress/>

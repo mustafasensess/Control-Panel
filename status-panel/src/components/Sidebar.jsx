@@ -9,7 +9,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import SettingsIcon from '@mui/icons-material/Settings';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight'; 
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const drawerWidth = 260;
 const closedDrawerWidth = 0;
